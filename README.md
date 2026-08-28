@@ -5,8 +5,7 @@ Code, data, and reproduction scripts for the article:
 > **Resilient and Responsible AI Systems: An Integrated Framework for
 > Technical, Ethical, and Accountability Governance in Adversarial
 > Machine Learning** — Joshua Enoch Maxwellson, Nuhamin Henok Tesfay,
-> Elijah Afolabi, Dwayne Livermore, and Alex V. Mbaziira,
-> submitted to IEEE Access.
+> Elijah Afolabi, Dwayne Livermore, and Alex V. Mbaziira
 
 This repository contains the reference implementation of IGRA (Integrated
 Governance Response Algorithm, Algorithm 1 of the paper), the synthetic
