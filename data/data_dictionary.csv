@@ -1,0 +1,12 @@
+column,type,description
+feature_1,float,"Informative feature, Normal(0.5, 0.45^2), independent of protected_group; model input"
+feature_2,float,"Informative feature, Normal(0.45, 0.45^2), independent of protected_group; model input"
+noise_1,float,"Uninformative feature, Normal(0, 1); model input"
+noise_2,float,"Uninformative feature, Normal(0, 1); model input"
+noise_3,float,"Uninformative feature, Normal(0, 1); model input"
+noise_4,float,"Uninformative feature, Normal(0, 1); model input"
+noise_5,float,"Uninformative feature, Normal(0, 1); model input"
+noise_6,float,"Uninformative feature, Normal(0, 1); model input"
+protected_group,int,"Binary protected attribute g in {0,1}, P(g=1)=0.35, drawn independently of features and label process; NOT a model input"
+label,int,"Binary label y = 1{logit > median(logit)}; 50/50 by construction; group-independent process"
+latent_logit,float,"Generator's latent score 1.2*feature_1 + 0.8*feature_2 + Normal(0, 0.5^2); used by the boundary-targeted attack; NOT a model input"

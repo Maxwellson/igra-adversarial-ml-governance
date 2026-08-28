@@ -1,0 +1,126 @@
+{
+  "seed": 42,
+  "n_trials": 500,
+  "table6": {
+    "technical_driven": {
+      "pavi_acc": 1.0,
+      "pavi_ci": [
+        0.9923756595384479,
+        1.0
+      ],
+      "igra_acc": 1.0,
+      "igra_ci": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "ethical_driven": {
+      "pavi_acc": 0.0,
+      "pavi_ci": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ],
+      "igra_acc": 1.0,
+      "igra_ci": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "accountability_driven": {
+      "pavi_acc": 0.0,
+      "pavi_ci": [
+        4.336808689942018e-19,
+        0.007624340461552241
+      ],
+      "igra_acc": 1.0,
+      "igra_ci": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "combined_moderate": {
+      "pavi_acc": 1.0,
+      "pavi_ci": [
+        0.9923756595384479,
+        1.0
+      ],
+      "igra_acc": 0.978,
+      "igra_ci": [
+        0.9610391387886836,
+        0.9876719917300725
+      ]
+    },
+    "all_low": {
+      "pavi_acc": 1.0,
+      "pavi_ci": [
+        0.9923756595384479,
+        1.0
+      ],
+      "igra_acc": 1.0,
+      "igra_ci": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "all_high": {
+      "pavi_acc": 1.0,
+      "pavi_ci": [
+        0.9923756595384479,
+        1.0
+      ],
+      "igra_acc": 1.0,
+      "igra_ci": [
+        0.9923756595384479,
+        1.0
+      ]
+    },
+    "overall": {
+      "pavi_acc": 0.6666666666666666,
+      "pavi_ci": [
+        0.6495942833876334,
+        0.6833127670372579
+      ],
+      "igra_acc": 0.9963333333333333,
+      "igra_ci": [
+        0.9934458647605265,
+        0.9979513314047997
+      ]
+    }
+  },
+  "table7": {
+    "ethical_driven": {
+      "dominance_acc": 1.0,
+      "naive_avg_acc": 0.0
+    },
+    "accountability_driven": {
+      "dominance_acc": 1.0,
+      "naive_avg_acc": 0.0
+    }
+  },
+  "pure_max_clean": {
+    "technical_driven": {
+      "identical_to_igra": true,
+      "pure_max_acc": 1.0
+    },
+    "ethical_driven": {
+      "identical_to_igra": true,
+      "pure_max_acc": 1.0
+    },
+    "accountability_driven": {
+      "identical_to_igra": true,
+      "pure_max_acc": 1.0
+    },
+    "combined_moderate": {
+      "identical_to_igra": true,
+      "pure_max_acc": 0.978
+    },
+    "all_low": {
+      "identical_to_igra": true,
+      "pure_max_acc": 1.0
+    },
+    "all_high": {
+      "identical_to_igra": true,
+      "pure_max_acc": 1.0
+    }
+  }
+}

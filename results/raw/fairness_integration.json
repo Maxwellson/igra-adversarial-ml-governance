@@ -1,0 +1,54 @@
+{
+  "seed": 42,
+  "n_trials": 500,
+  "delta_E": 0.1,
+  "table11": {
+    "0.0": {
+      "mean_eod": 0.02150949450730401,
+      "ethical_risk": 0.21509494507304008,
+      "igra_escalation": 0.196,
+      "pavi_escalation": 0.196
+    },
+    "0.25": {
+      "mean_eod": 0.014021674398998638,
+      "ethical_risk": 0.14021674398998638,
+      "igra_escalation": 0.2,
+      "pavi_escalation": 0.2
+    },
+    "0.5": {
+      "mean_eod": 0.026096134221944428,
+      "ethical_risk": 0.2609613422194443,
+      "igra_escalation": 0.188,
+      "pavi_escalation": 0.188
+    },
+    "0.75": {
+      "mean_eod": 0.027025507310237076,
+      "ethical_risk": 0.27025507310237074,
+      "igra_escalation": 0.228,
+      "pavi_escalation": 0.228
+    },
+    "1.0": {
+      "mean_eod": 0.04020906463632877,
+      "ethical_risk": 0.4020906463632877,
+      "igra_escalation": 1.0,
+      "pavi_escalation": 0.172
+    }
+  },
+  "seed_level": {
+    "eod_per_seed": [
+      0.01504629629629628,
+      0.020196232063711128,
+      0.09612636619935894,
+      0.05512655512655512,
+      0.007894736842105288,
+      0.02788502788502789,
+      0.05422222222222223,
+      0.04517508045535329
+    ],
+    "eod_min": 0.007894736842105288,
+    "eod_max": 0.09612636619935894,
+    "boundary_ethical_risk": 0.3846153846153846,
+    "crossings": 4,
+    "n_seeds": 8
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "tau_tech": 0.20,
+  "tau_ethics": 0.20,
+  "tau_account": 0.20,
+  "response_thresholds": [0.20, 0.35, 0.50, 0.70, 0.85],
+  "human_review_boundary": 0.50,
+  "delta_E": 0.10,
+  "context_weight_table": {
+    "low_criticality_unregulated": 1.00,
+    "low_criticality_regulated": 1.15,
+    "high_criticality_unregulated": 1.30,
+    "high_criticality_regulated": 1.50
+  },
+  "context_weight_used_in_experiments": 1.30,
+  "critical_severity_cutoff": 0.45,
+  "recalibration_rate_eta": 0.05,
+  "observation_noise": {
+    "clean_scenarios_sigma_sub": 0.05,
+    "borderline_sigma_shared": 0.08,
+    "borderline_sigma_independent": 0.03,
+    "sub_signals_per_channel": 3
+  },
+  "severity_bands": {
+    "low": [0.00, 0.15],
+    "medium": [0.15, 0.35],
+    "high": [0.45, 0.85]
+  },
+  "training": {
+    "hidden_units": [32, 16],
+    "output_units": 2,
+    "optimizer": "Adam",
+    "learning_rate": 0.005,
+    "weight_decay": 0.0001,
+    "epochs": 150,
+    "batch": "full",
+    "test_size": 0.30
+  },
+  "seeds": {
+    "wdbc": [42, 43, 44, 45, 46],
+    "fairness": [42, 43, 44, 45, 46, 47, 48, 49],
+    "scenarios": 42,
+    "borderline": 42,
+    "mean_branch": 43,
+    "workload": 42,
+    "fairness_integration": 42
+  }
+}

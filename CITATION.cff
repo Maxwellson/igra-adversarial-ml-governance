@@ -1,0 +1,48 @@
+cff-version: 1.2.0
+title: >-
+  IGRA: reproducibility package for "Resilient and Responsible AI Systems:
+  An Integrated Framework for Technical, Ethical, and Accountability
+  Governance in Adversarial Machine Learning"
+message: If you use this software, please cite the associated article.
+type: software
+authors:
+  - family-names: "Maxwellson"
+    given-names: "Joshua Enoch"
+    orcid: "https://orcid.org/0009-0007-8221-6997"
+    email: "jem01497@marymount.edu"
+    affiliation: "Marymount University, Arlington, VA, USA"
+  - family-names: "Tesfay"
+    given-names: "Nuhamin Henok"
+    email: "n0t85316@marymount.edu"
+    affiliation: "Marymount University, Arlington, VA, USA"
+  - family-names: "Afolabi"
+    given-names: "Elijah"
+    email: "e0a97952@marymount.edu"
+    affiliation: "Marymount University, Arlington, VA, USA"
+  - family-names: "Livermore"
+    given-names: "Dwayne"
+    email: "dlivermo@marymount.edu"
+    affiliation: "Marymount University, Arlington, VA, USA"
+  - family-names: "Mbaziira"
+    given-names: "Alex V."
+    email: "ambaziir@marymount.edu"
+    affiliation: "Marymount University, Arlington, VA, USA"
+repository-code: "https://github.com/Maxwellson/igra-adversarial-ml-governance"
+abstract: >-
+  Reference implementation of IGRA (Integrated Governance Response
+  Algorithm), the synthetic fairness dataset generator, the WDBC attack
+  code (FGSM, PGD, label-flipping poisoning), and the scripts that
+  reproduce every experimental table and results figure in the associated
+  article. Includes a verification script that checks 43 reported
+  quantities against the code's own output.
+keywords:
+  - adversarial machine learning
+  - AI governance
+  - risk fusion
+  - accountability
+  - fairness
+  - response selection
+  - reproducibility
+license: MIT
+version: 1.0.0
+date-released: "2026-08-27"
