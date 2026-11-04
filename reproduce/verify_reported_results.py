@@ -204,6 +204,39 @@ def main():
            ["0.0", "0.25", "0.5", "0.75", "1.0"]],
           [19.6, 20.0, 18.8, 22.8, 17.2], nd=1)
 
+    # --- Revision additions: clean-scenario error counts -----------------
+    ec = sc["error_counts"]
+    check("clean missed-critical, PAVI-only (count)",
+          [ec["overall"]["pavi"]["missed"], ec["overall"]["pavi"]["critical"]],
+          [1000, 2000])
+    check("clean missed-critical, IGRA (count)",
+          [ec["overall"]["igra"]["missed"], ec["overall"]["igra"]["critical"]],
+          [0, 2000])
+    check("clean false escalations, IGRA (count of non-critical)",
+          [ec["overall"]["igra"]["false_esc"],
+           ec["overall"]["igra"]["noncritical"]], [11, 1000])
+    d = ec["combined_moderate"]["false_esc_detail"]
+    check("combined_moderate false escalations (all non-critical)", d["n"], 11)
+    check("combined_moderate false-esc true max severity (max)",
+          d["true_max_severity_max"], 0.349)
+    check("combined_moderate false-esc observed max (min)",
+          d["observed_max_min"], 0.386)
+
+    # --- Revision additions: delta_E sensitivity --------------------------
+    sw = {round(r["delta_E"], 2): r for r in fi["delta_E_sweep"]}
+    check("delta_E sweep: escalation at 0.10 / 0.11 (%)",
+          [sw[0.10]["igra_escalation_at_mean_eod"] * 100,
+           sw[0.11]["igra_escalation_at_mean_eod"] * 100],
+          [100.0, 17.2], nd=1)
+    check("delta_E sweep: ethical_risk at 0.11", sw[0.11]["ethical_risk"],
+          0.366)
+    check("delta_E sweep: seed crossings at 0.06,0.08,0.12,0.15,0.20",
+          [sw[k]["seed_level_crossings"] for k in
+           (0.06, 0.08, 0.12, 0.15, 0.20)], [5, 4, 3, 1, 1])
+    check("delta_E sweep: escalation flips only between 0.10 and 0.11",
+          [k for k in sorted(sw) if sw[k]["escalates_at_mean_eod"]][-1],
+          0.10)
+
     print(f"\n{PASS} checks passed, {FAIL} failed.")
     if FAIL:
         sys.exit(1)

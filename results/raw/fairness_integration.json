@@ -50,5 +50,112 @@
     "boundary_ethical_risk": 0.3846153846153846,
     "crossings": 4,
     "n_seeds": 8
-  }
+  },
+  "delta_E_sweep": [
+    {
+      "delta_E": 0.06,
+      "ethical_risk": 0.6701510772721462,
+      "igra_escalation_at_mean_eod": 1.0,
+      "escalates_at_mean_eod": true,
+      "seed_level_crossings": 5
+    },
+    {
+      "delta_E": 0.07,
+      "ethical_risk": 0.574415209090411,
+      "igra_escalation_at_mean_eod": 1.0,
+      "escalates_at_mean_eod": true,
+      "seed_level_crossings": 5
+    },
+    {
+      "delta_E": 0.08,
+      "ethical_risk": 0.5026133079541096,
+      "igra_escalation_at_mean_eod": 1.0,
+      "escalates_at_mean_eod": true,
+      "seed_level_crossings": 4
+    },
+    {
+      "delta_E": 0.09,
+      "ethical_risk": 0.44676738484809747,
+      "igra_escalation_at_mean_eod": 1.0,
+      "escalates_at_mean_eod": true,
+      "seed_level_crossings": 4
+    },
+    {
+      "delta_E": 0.1,
+      "ethical_risk": 0.4020906463632877,
+      "igra_escalation_at_mean_eod": 1.0,
+      "escalates_at_mean_eod": true,
+      "seed_level_crossings": 4
+    },
+    {
+      "delta_E": 0.11,
+      "ethical_risk": 0.3655369512393525,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 4
+    },
+    {
+      "delta_E": 0.12,
+      "ethical_risk": 0.3350755386360731,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 3
+    },
+    {
+      "delta_E": 0.13,
+      "ethical_risk": 0.309300497202529,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 3
+    },
+    {
+      "delta_E": 0.14,
+      "ethical_risk": 0.2872076045452055,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 3
+    },
+    {
+      "delta_E": 0.15,
+      "ethical_risk": 0.2680604309088585,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    },
+    {
+      "delta_E": 0.16,
+      "ethical_risk": 0.2513066539770548,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    },
+    {
+      "delta_E": 0.17,
+      "ethical_risk": 0.23652390962546332,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    },
+    {
+      "delta_E": 0.18,
+      "ethical_risk": 0.22338369242404874,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    },
+    {
+      "delta_E": 0.19,
+      "ethical_risk": 0.21162665598067773,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    },
+    {
+      "delta_E": 0.2,
+      "ethical_risk": 0.20104532318164384,
+      "igra_escalation_at_mean_eod": 0.172,
+      "escalates_at_mean_eod": false,
+      "seed_level_crossings": 1
+    }
+  ]
 }

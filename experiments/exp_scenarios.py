@@ -80,6 +80,11 @@ def run():
     results = {"seed": SEED, "n_trials": N_TRIALS, "table6": {},
                "table7": {}, "pure_max_clean": {}}
     total_correct = {"pavi": 0, "igra": 0}
+    errors = {"pavi": {"missed": 0, "critical": 0, "false_esc": 0,
+                       "noncritical": 0},
+              "igra": {"missed": 0, "critical": 0, "false_esc": 0,
+                       "noncritical": 0}}
+    results["error_counts"] = {}
 
     for name, bands in SCENARIOS.items():
         s = generate_scenario(rng, bands)
@@ -102,6 +107,29 @@ def run():
             "identical_to_igra": bool(np.array_equal(igra_esc, pmax_esc)),
             "pure_max_acc": evaluate(pmax_esc, s["critical"]),
         }
+        counts = {}
+        for key, esc in (("pavi", pavi_esc), ("igra", igra_esc)):
+            c = s["critical"]
+            counts[key] = {"missed": int((c & ~esc).sum()),
+                           "critical": int(c.sum()),
+                           "false_esc": int((~c & esc).sum()),
+                           "noncritical": int((~c).sum())}
+            for f in errors[key]:
+                errors[key][f] += counts[key][f]
+        if name == "combined_moderate":
+            fe = (~s["critical"]) & igra_esc
+            true_max = np.maximum.reduce([s["t"], s["e"], s["a"]])
+            obs_max = np.maximum.reduce([s["t_obs"], s["e_obs"], s["a_obs"]])
+            counts["false_esc_detail"] = {
+                "n": int(fe.sum()),
+                "true_max_severity_min": float(true_max[fe].min()),
+                "true_max_severity_max": float(true_max[fe].max()),
+                "observed_max_min": float(obs_max[fe].min()),
+                "observed_max_max": float(obs_max[fe].max()),
+                "escalation_trigger_observed": 0.50 / 1.30,
+                "pavi_escalations": int(pavi_esc.sum()),
+            }
+        results["error_counts"][name] = counts
         if name in ("ethical_driven", "accountability_driven"):
             naive_esc = naive_avg_escalates(s["t_obs"], s["e_obs"],
                                             s["a_obs"])
@@ -117,6 +145,10 @@ def run():
         results["table6"]["overall"][f"{key}_acc"] = k / n_total
         results["table6"]["overall"][f"{key}_ci"] = wilson_ci(k, n_total)
 
+    results["error_counts"]["overall"] = {
+        key: {**v, "missed_rate": v["missed"] / v["critical"],
+              "false_esc_rate": v["false_esc"] / v["noncritical"]}
+        for key, v in errors.items()}
     out = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..",
                        "results", "raw", "scenarios.json")
     os.makedirs(os.path.dirname(out), exist_ok=True)
@@ -130,6 +162,13 @@ def run():
               f"[{r['pavi_ci'][0]:.3f},{r['pavi_ci'][1]:.3f}]   "
               f"IGRA {r['igra_acc']:.3f} "
               f"[{r['igra_ci'][0]:.3f},{r['igra_ci'][1]:.3f}]")
+    ov = results["error_counts"]["overall"]
+    print("\nClean-scenario missed-critical / false-escalation totals:")
+    for key in ("pavi", "igra"):
+        print(f"  {key:<5} missed {ov[key]['missed']}/{ov[key]['critical']}"
+              f" = {ov[key]['missed_rate']:.1%}   false-esc "
+              f"{ov[key]['false_esc']}/{ov[key]['noncritical']}"
+              f" = {ov[key]['false_esc_rate']:.1%}")
     print("\nTable VII (fusion ablation):")
     for name, r in results["table7"].items():
         print(f"  {name:<22} dominance {r['dominance_acc']:.3f}   "

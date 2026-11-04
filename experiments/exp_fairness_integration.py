@@ -36,6 +36,7 @@ SIGMA_SUB = 0.05
 N_SUB = 3
 ACC_LOW = (0.00, 0.15)
 FRACTIONS = ["0.0", "0.25", "0.5", "0.75", "1.0"]
+DELTA_E_SWEEP = [round(0.06 + 0.01 * k, 2) for k in range(15)]  # 0.06..0.20
 
 
 def run():
@@ -86,6 +87,23 @@ def run():
         "n_seeds": len(eods),
     }
 
+    # delta_E sensitivity: where does the full-strength EOD stop escalating?
+    mean_eod_full = fair["table5"]["1.0"]["eod"]
+    sweep = []
+    for delta in DELTA_E_SWEEP:
+        er = min(1.0, abs(mean_eod_full) / delta)
+        seed_er = np.minimum(1.0, np.abs(eods) / delta)
+        esc_rate = float(igra_escalates(
+            t, np.full(N_TRIALS, er), a_obs, cw=CONTEXT_WEIGHT).mean())
+        sweep.append({
+            "delta_E": delta,
+            "ethical_risk": er,
+            "igra_escalation_at_mean_eod": esc_rate,
+            "escalates_at_mean_eod": bool((CONTEXT_WEIGHT * er) >= 0.50),
+            "seed_level_crossings": int((seed_er > boundary).sum()),
+        })
+    results["delta_E_sweep"] = sweep
+
     out = os.path.join(raw_dir, "fairness_integration.json")
     with open(out, "w") as f:
         json.dump(results, f, indent=2)
@@ -102,7 +120,17 @@ def run():
     print(f"\nSeed-level at full strength: EOD {sl['eod_min']:.3f} to "
           f"{sl['eod_max']:.3f}; crossings {sl['crossings']}/{sl['n_seeds']} "
           f"(ethical_risk > {sl['boundary_ethical_risk']:.3f})")
+    print("\ndelta_E sensitivity (full-strength mean EOD):")
+    print(f"{'dE':>6} {'eth_risk':>9} {'IGRA esc':>9} {'seed cross':>11}")
+    for r in sweep_rows(results):
+        print(f"{r['delta_E']:>6.2f} {r['ethical_risk']:>9.3f} "
+              f"{r['igra_escalation_at_mean_eod']:>9.1%} "
+              f"{r['seed_level_crossings']:>8}/{sl['n_seeds']}")
     return results
+
+
+def sweep_rows(results):
+    return results["delta_E_sweep"]
 
 
 if __name__ == "__main__":

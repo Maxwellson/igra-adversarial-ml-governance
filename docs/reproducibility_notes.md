@@ -6,7 +6,7 @@ The committed `results/raw/*.json` were produced with the exact versions
 in `requirements.txt` (PyTorch 2.13.0, NumPy 2.4.4, scikit-learn 1.8.0)
 on CPU with `torch.set_num_threads(1)`. Under this environment the full
 pipeline is deterministic end to end, and
-`reproduce/verify_reported_results.py` passes all 43 checks.
+`reproduce/verify_reported_results.py` passes all 53 checks.
 
 ## What the reported numbers depend on
 

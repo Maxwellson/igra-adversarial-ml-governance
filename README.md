@@ -98,16 +98,19 @@ Runtime by experiment:
 
 ## Verification
 
-`reproduce/verify_reported_results.py` checks **43 quantities** against the
+`reproduce/verify_reported_results.py` checks **53 quantities** against the
 values printed in the article: every Table IV–XI cell class, the worked
-trace of Section VIII-F, the 4-of-8 seed-level fairness crossings, and the
-structural equivalences of Section X-C. All 43 pass in the pinned
+trace of Section VIII-F, the 4-of-8 seed-level fairness crossings, the clean-scenario
+missed-critical and false-escalation counts, the δ_E sensitivity sweep, and
+the structural equivalences of Section X-C. All 53 pass in the pinned
 environment.
 
-On other PyTorch builds expect roughly 35 of 43. The eight that move are
-all in Tables IV, V and XI, which involve retraining a model; the largest
-deviation observed is 0.004. The 28 simulation-only checks are NumPy-only
-and reproduce exactly on any platform. See
+On other PyTorch builds expect roughly 41 of 53, and slightly fewer if the
+δ_E sweep moves with the retrained fairness models. The checks that move are
+in Tables IV, V and XI and the δ_E sweep, which all involve a retrained
+model; the largest deviation observed is 0.004. The simulation-only checks
+(including the six new clean-scenario counts) are NumPy-only and reproduce
+exactly on any platform. See
 `docs/reproducibility_notes.md`.
 
 ## Repository structure

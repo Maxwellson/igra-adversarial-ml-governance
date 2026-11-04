@@ -122,5 +122,118 @@
       "identical_to_igra": true,
       "pure_max_acc": 1.0
     }
+  },
+  "error_counts": {
+    "technical_driven": {
+      "pavi": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      }
+    },
+    "ethical_driven": {
+      "pavi": {
+        "missed": 500,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      }
+    },
+    "accountability_driven": {
+      "pavi": {
+        "missed": 500,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      }
+    },
+    "combined_moderate": {
+      "pavi": {
+        "missed": 0,
+        "critical": 0,
+        "false_esc": 0,
+        "noncritical": 500
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 0,
+        "false_esc": 11,
+        "noncritical": 500
+      },
+      "false_esc_detail": {
+        "n": 11,
+        "true_max_severity_min": 0.3175901888752865,
+        "true_max_severity_max": 0.34917377315790726,
+        "observed_max_min": 0.3855221029988778,
+        "observed_max_max": 0.4222457600111267,
+        "escalation_trigger_observed": 0.3846153846153846,
+        "pavi_escalations": 0
+      }
+    },
+    "all_low": {
+      "pavi": {
+        "missed": 0,
+        "critical": 0,
+        "false_esc": 0,
+        "noncritical": 500
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 0,
+        "false_esc": 0,
+        "noncritical": 500
+      }
+    },
+    "all_high": {
+      "pavi": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 500,
+        "false_esc": 0,
+        "noncritical": 0
+      }
+    },
+    "overall": {
+      "pavi": {
+        "missed": 1000,
+        "critical": 2000,
+        "false_esc": 0,
+        "noncritical": 1000,
+        "missed_rate": 0.5,
+        "false_esc_rate": 0.0
+      },
+      "igra": {
+        "missed": 0,
+        "critical": 2000,
+        "false_esc": 11,
+        "noncritical": 1000,
+        "missed_rate": 0.0,
+        "false_esc_rate": 0.011
+      }
+    }
   }
 }

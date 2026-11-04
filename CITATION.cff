@@ -33,7 +33,7 @@ abstract: >-
   Algorithm), the synthetic fairness dataset generator, the WDBC attack
   code (FGSM, PGD, label-flipping poisoning), and the scripts that
   reproduce every experimental table and results figure in the associated
-  article. Includes a verification script that checks 43 reported
+  article. Includes a verification script that checks 53 reported
   quantities against the code's own output.
 keywords:
   - adversarial machine learning
@@ -44,5 +44,5 @@ keywords:
   - response selection
   - reproducibility
 license: MIT
-version: 1.0.0
-date-released: "2026-08-27"
+version: 1.1.0
+date-released: "2026-11-04"
