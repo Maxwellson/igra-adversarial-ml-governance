@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.2.0 (2026-11-08)
+- Added `experiments/exp_proxy_mechanism.py` and `experiments/analysis_proxy_mechanism.py`
+  with outputs `results/raw/proxy_mechanism.json` and `proxy_mechanism_summary.json`.
+  They rerun the proxy-study models (identical accuracy to the 1.1.0 run) and add
+  a proxy ablation at test time, per-model permutation thresholds for the
+  equal-opportunity gap, an attacker that ranks examples by the clean model's
+  margin, a repeated-measures ANOVA and mixed-model test of the proxy-by-poisoning
+  interaction, and Holm-adjusted paired tests.
+- `reproduce/reproduce_proxy_study.py` now also runs the mechanism study.
+
 ## 1.1.0 (2026-11-04)
 - Added `experiments/exp_proxy_fairness.py`, `experiments/analysis_proxy_fairness.py`
   and `experiments/analysis_fairness_paired.py`, with outputs in `results/raw/`
