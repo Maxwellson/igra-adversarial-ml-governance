@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.2.1 (2026-11-18)
+- Added `experiments/exp_proxy_selection.py` and `experiments/analysis_proxy_selection.py`
+  with outputs `results/raw/proxy_selection_d*.json` and `proxy_selection_summary.json`.
+  They repeat the proxy study with three other ways of choosing which group-1
+  positives are flipped (random, farthest from the boundary first, nearest to
+  the 75th percentile of the latent score) and measure the equal-opportunity gap
+  at decision thresholds of 0.3, 0.5 and 0.7.
+- `reproduce/reproduce_proxy_study.py` now also runs the selection-rule study.
+
 ## 1.2.0 (2026-11-08)
 - Added `experiments/exp_proxy_mechanism.py` and `experiments/analysis_proxy_mechanism.py`
   with outputs `results/raw/proxy_mechanism.json` and `proxy_mechanism_summary.json`.
